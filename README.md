@@ -1,11 +1,14 @@
-# 15-445/645 C++ Bootcamp
-This bootcamp aims to provide a basic introduction to coding in modern C++. 
+# COMP 421 C++ Bootcamp
+This bootcamp aims to provide a basic introduction to coding in modern C++.
+This is based on the tutorials from CMU's 15-445, but with some more examples added.
 The features of the C++ language are too vast and expansive to cover in one
 bootcamp, and quite frankly, it is learned best through experience. The staff
-is certain that 15-445 will make you a more confident C++ programmer! 
+is certain that COMP 421 will make you a more confident C++ programmer! 
 However, we do cover some C++ topics that are necessary to know while doing
-the programming assignments. This tutorial does not cover basic C/C++ syntax.
-It mainly covers C++ programming features, particularly concepts that do not exist in C.
+the programming assignments. 
+This tutorial does not cover the most basic C/C++ syntax, it assumes familiarity with C and OOP concepts from a language like Java.
+However, we try to cover some C++ basics that will be familiar/similar to other languages before moving on to more advanced features that will be helpful in the course.
+The larger emphasis is on C++ programming features and concepts that do not exist in C or java.
 
 Feedback for the C++ bootcamp is always appreciated! Feel free to submit issues/PRs.
 
@@ -19,7 +22,7 @@ should be located in the `build` directory.
 $ mkdir build
 $ cd build
 $ cmake ..
-$ make -j8
+$ make -j $(nproc)
 ```
 For instance, the `src/references.cpp` file compiles into the `references`
 executable, located in `./build`. The same holds for every file in the source
@@ -32,14 +35,13 @@ builds up on the previous one. However, if you know some modern C++ concepts
 and are looking to refresh your knowledge, it is probably okay to start by
 reading the files on concepts you are unfamiliar about.
 
-### References and Move Semantics
-- `references.cpp`: Covers C++ references.
-- `move_semantics.cpp`: Covers C++ move semantics.
-- `move_constructors.cpp`: Covers C++ class move constructors and move assignment operators.
+## Core Topics (Bootcamp 1)
 
-### C++ Templates
-- `templated_functions.cpp`: Covers C++ templated functions.
-- `templated_classes.cpp` Covers C++ templated classes.
+### Basics
+- `objects.cpp`: Covers basic anatomy of an object and basic usage. 
+
+### Basic Memory Management
+- `references.cpp`: Covers C++ references.
 
 ### Misc
 - `wrapper_class.cpp`: Covers C++ wrapper classes.
@@ -56,14 +58,25 @@ reading the files on concepts you are unfamiliar about.
 - `unique_ptr.cpp`: Covers `std::unique_ptr`.
 - `shared_ptr.cpp`: Covers `std::shared_ptr`.
 
+### Demo Code for Bootcamp 1
+- `spring2024/s24_my_ptr.cpp`: Covers the code used in Spring 2024 bootcamp.
+
+## Advanced Topics (Bootcamp 2)
+
+### C++ Templates (are not Java generics)
+- `templated_functions.cpp`: Covers C++ templated functions.
+- `templated_classes.cpp` Covers C++ templated classes.
+
+### Move Semantics
+- `move_semantics.cpp`: Covers C++ move semantics.
+- `move_constructors.cpp`: Covers C++ class move constructors and move assignment operators.
+
 ### C++ Standard Library (STL) Synch Primitives
 - `mutex.cpp`: Covers `std::mutex`.
 - `scoped_lock.cpp`: Covers `std::scoped_lock`.
 - `condition_variable.cpp`: Covers `std::condition_variable`.
 - `rwlock.cpp`: Covers the usage of several C++ STL synchronization primitive libraries (`std::shared_mutex`, `std::shared_lock`, `std::unique_lock`) to create a reader-writer's lock implementation. 
 
-### Demo Code for 15-445/645 Bootcamp
-- `spring2024/s24_my_ptr.cpp`: Covers the code used in Spring 2024 bootcamp.
 
 ## Other Resources
 There are many other resources that will be helpful while you get accquainted to C++.
