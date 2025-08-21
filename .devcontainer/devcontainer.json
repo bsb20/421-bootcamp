@@ -1,0 +1,10 @@
+{
+      "name": "UNC COMP 421 Bootcamp",
+      "image": "ubuntu:22.04",
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.cmake-tools"
+      ],
+      "postCreateCommand" : "echo y | ./packages.sh; git remote add public https://github.com/bsb20/421-bootcamp"
+}
