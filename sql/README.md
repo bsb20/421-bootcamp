@@ -1,7 +1,7 @@
 # SQL Workout
 
 The empty files in this directory are to be filled in with SQL.
-When you are happy with a file, you can check you answer using
+When you are happy with a file, you can check your answer using
 
 `./check.py FILE_OR_TEST_NAME`
 
