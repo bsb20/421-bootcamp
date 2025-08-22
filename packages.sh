@@ -96,7 +96,16 @@ install_linux() {
       pkg-config \
       zlib1g-dev \
       libelf-dev \
-      libdwarf-dev
+      libdwarf-dev\
+      wget\
+      sqlite3
+  pushd ./sql
+  if [[ ! -e imdb-cmudb2022.db.gz && ! -e imdb-cmudb2022.db ]]
+  then 
+    wget https://15445.courses.cs.cmu.edu/fall2022/files/imdb-cmudb2022.db.gz
+    gunzip imdb-cmudb2022.db.gz
+  fi
+  popd
 }
 
 main "$@"
