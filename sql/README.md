@@ -7,4 +7,7 @@ For example
 or
 `./check.py q1_sample`
 
-The questions for each file are below.  **No Peeking** :eyes:.
+The questions for each file are below.  **No peeking at the solutions**  :eyes:.
+
+## Q1
+WIP
