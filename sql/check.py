@@ -33,6 +33,18 @@ def run_unit(name, should_sort=False):
     \033[0m
     ''')
         print("Query result does not match our solution.")
+        sol_lines = actual.split("\n")
+        ref_lines = expected.split("\n")
+        for idx in range(len(sol_lines)):
+            if idx >= len(ref_lines):
+                print(sol_lines[idx] + " << >> \"\"") 
+                break
+            elif sol_lines[idx] != ref_lines[idx]:
+                print((sol_lines[idx] or "\"\"") + " << >> " + (ref_lines[idx] or "\"\""))
+                break
+            elif idx == len(sol_lines) - 1:
+                print(" \"\" << >> " + ref_lines[idx+1])
+                break
 
 if __name__ == "__main__":
     test_name = sys.argv[1] if not sys.argv[1].endswith(".sql") else os.path.basename(sys.argv[1]).split(".")[0]
