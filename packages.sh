@@ -79,6 +79,16 @@ install_mac() {
   brew ls --versions git || brew install git
   (brew ls --versions llvm | grep 14) || brew install llvm@14
   brew ls --versions libelf || brew install libelf
+  brew install sqlite
+  brew install wget
+  pushd ./sql
+  if [[ ! -e imdb-cmudb2022.db.gz && ! -e imdb-cmudb2022.db ]]
+  then 
+    wget https://15445.courses.cs.cmu.edu/fall2022/files/imdb-cmudb2022.db.gz
+    gunzip imdb-cmudb2022.db.gz
+    sqlite3  imdb-cmudb2022.db < setup.sql
+  fi
+  popd
 }
 
 install_linux() {
@@ -98,12 +108,14 @@ install_linux() {
       libelf-dev \
       libdwarf-dev\
       wget\
-      sqlite3
+      sqlite3\
+      gzip
   pushd ./sql
   if [[ ! -e imdb-cmudb2022.db.gz && ! -e imdb-cmudb2022.db ]]
   then 
     wget https://15445.courses.cs.cmu.edu/fall2022/files/imdb-cmudb2022.db.gz
     gunzip imdb-cmudb2022.db.gz
+    sqlite3 imdb-cmudb2022.db < setup.sql
   fi
   popd
 }
