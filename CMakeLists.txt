@@ -48,3 +48,4 @@ add_executable(objects src/objects.cpp)
 # Compiling bootcamp demo code
 add_executable(s24_my_ptr src/spring2024/s24_my_ptr.cpp)
 add_executable(bootcamp1 src/bootcamp1.cpp)
+add_executable(bootcamp2 src/bootcamp2.cpp)
