@@ -67,8 +67,7 @@ template<typename T> SmartArray<T>::SmartArray(SmartArray &&that) {
   // 1. Set the size according to that.size
   // 2. Set the name to {that.name}_moved
   // 3. Move that.data to data
-  // 4. Set the size according to that.size
-  // 5. Set that.data to nullptr and that.size to 0 (Why?)
+  // 4. Set that.data to nullptr and that.size to 0 (Why?)
 }
 
 template<typename T>
@@ -110,7 +109,8 @@ void SmartArray<T>::read_data(int id) {
   // Read and print all the contents in the SmartArray with thread id `id`
   // 1. Lock the mutex using shared_lock
   // 2. Output Reader {id} is reading
-  // 3. Output all the contents in the SmartArray using a for-each loop
+  // 3. Output all the contents in the SmartArray using a for loop
+  //      or for-each loop (if you know how to do that)
 }
 
 template<typename T>
