@@ -29,8 +29,12 @@
 // Basic point class. (Will use later)
 class Point {
 public:
-  Point() : x_(0), y_(0) {}
-  Point(int x, int y) : x_(x), y_(y) {}
+  Point() : x_(0), y_(0) {
+    std::cout << "Constructor for " << x_ << " " << y_ << std::endl;
+  }
+  Point(int x, int y) : x_(x), y_(y) {
+    std::cout << "Constructor for " << x_ << " " << y_ << std::endl;
+  }
   ~Point(){
     std::cout << "Destructor for " << x_ << " " << y_ << std::endl;
   }
@@ -54,10 +58,12 @@ Point * PointFactory(int x, int y){
 
 int main() {
   //This is ok!  Allocation is stack, duration is "automatic"
-  Point pointStack(2,2);
+  for (int i = 0; i < 3; i++) {
+    Point pointStack(2,2);
+  }
 
   //in java, this is ok
-  Point * p = PointFactory(0, 1);
+  Point * p = PointFactory(10, 10);
   //leak!
   //delete p;
   std::cout << "Did we leak?" << std::endl;
