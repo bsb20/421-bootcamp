@@ -81,14 +81,14 @@ install_mac() {
   brew ls --versions libelf || brew install libelf
   brew install sqlite
   brew install wget
-  #pushd ./sql
-  #if [[ ! -e imdb-cmudb2022.db.gz && ! -e imdb-cmudb2022.db ]]
-  #then 
-  #  wget https://15445.courses.cs.cmu.edu/fall2022/files/imdb-cmudb2022.db.gz
-  #  gunzip imdb-cmudb2022.db.gz
-  #  sqlite3  imdb-cmudb2022.db < setup.sql
-  #fi
-  #popd
+  pushd ./sql
+  if [[ ! -e imdb-cmudb2022.db.gz && ! -e imdb-cmudb2022.db ]]
+  then 
+    wget https://15445.courses.cs.cmu.edu/fall2022/files/imdb-cmudb2022.db.gz
+    gunzip imdb-cmudb2022.db.gz
+    sqlite3  imdb-cmudb2022.db < setup.sql
+  fi
+  popd
 }
 
 install_linux() {
@@ -112,14 +112,14 @@ install_linux() {
       wget\
       sqlite3\
       gzip
-  #pushd ./sql
-  #if [[ ! -e imdb-cmudb2022.db.gz && ! -e imdb-cmudb2022.db ]]
-  #then 
-  #  wget https://15445.courses.cs.cmu.edu/fall2022/files/imdb-cmudb2022.db.gz
-  #  gunzip imdb-cmudb2022.db.gz
-  #  sqlite3 imdb-cmudb2022.db < setup.sql
-  #fi
-  #popd
+  pushd ./sql
+  if [[ ! -e imdb-cmudb2022.db.gz && ! -e imdb-cmudb2022.db ]]
+  then 
+    wget https://15445.courses.cs.cmu.edu/fall2022/files/imdb-cmudb2022.db.gz
+    gunzip imdb-cmudb2022.db.gz
+    sqlite3 imdb-cmudb2022.db < setup.sql
+  fi
+  popd
 }
 
 main "$@"
