@@ -38,7 +38,8 @@ build/
 todo.txt
 
 # VSCode
-.vscode/
+.vscode/*
+!.vscode/launch.json
 
 # Cache
 .cache/

@@ -18,6 +18,16 @@ endif()
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+# Clang on Linux defaults to -fno-standalone-debug ("limited" debug info), which
+# omits the full type layout that libstdc++'s gdb pretty-printers rely on. The
+# result is that std::string / std::vector locals fail to display in a debugger
+# (e.g. the VS Code Variables pane shows errors or nothing). Emitting complete
+# debug info in Debug builds fixes it. Harmless on AppleClang (already the
+# default) and skipped on GCC, which does not accept the flag.
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options($<$<CONFIG:Debug>:-fstandalone-debug>)
+endif()
+
 # Compiling move semantics/references executables
 add_executable(references src/references.cpp)
 add_executable(move_semantics src/move_semantics.cpp)

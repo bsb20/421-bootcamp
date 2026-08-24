@@ -100,6 +100,7 @@ install_linux() {
       clang-14 \
       clang-format-14 \
       clang-tidy-14 \
+      clangd-14 \
       cmake \
       doxygen \
       git \
@@ -107,6 +108,7 @@ install_linux() {
       zlib1g-dev \
       libelf-dev \
       libdwarf-dev\
+      gdb\
       wget\
       sqlite3\
       gzip

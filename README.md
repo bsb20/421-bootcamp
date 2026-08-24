@@ -12,6 +12,54 @@ The larger emphasis is on C++ programming features and concepts that do not exis
 
 Feedback for the C++ bootcamp is always appreciated! Feel free to submit issues/PRs.
 
+## Setup
+
+We recommend working on Ubuntu 22.04, or in a container image of Ubuntu 22.04. You may
+be able to build on other Ubuntu versions or on macOS, but do so at your own risk.
+
+### Installing packages
+
+To install the packages needed to build the bootcamp (a `clang-14` toolchain, CMake,
+`clangd`, `gdb`, and friends), run the install script:
+
+```console
+# Linux
+$ sudo ./packages.sh
+# macOS
+$ ./packages.sh
+```
+
+### VS Code Dev Containers (recommended)
+
+This repository is set up to integrate with the VS Code Dev Containers extension. You
+clone the repository onto your **host** machine and open that folder inside a container,
+so your commits, branches, and git credentials stay on the host.
+
+1.  Install [Docker](https://docs.docker.com/get-started/get-docker/) and the
+    [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) extension in VS Code.
+
+2.  Clone this repository if you have not already:
+
+    ```console
+    $ git clone <your-repo-url>
+    ```
+
+3.  Open VS Code. From the command palette (<kbd>F1</kbd>), run
+    ***Dev Containers: Open Folder in Container...*** and select the cloned folder. Wait for
+    the container to build. The first time, it automatically installs all required packages
+    (via `packages.sh`), so this may take a few minutes. Subsequent launches are fast.
+
+4.  Set the build configuration using the **CMake** tab. Click the CMake icon (triangle
+    with a wrench) in the left side bar and select a *Configure Preset*. We provide:
+
+    - **Debug** &mdash; debug build (the default).
+    - **Release** &mdash; optimized build.
+    - **RelWithDebInfo** &mdash; optimized build with debug info.
+
+5.  To build and run/debug a specific executable, select it as the CMake **launch target**
+    in the status bar, then use the Launch/Debug buttons in the **CMake** tab or at the
+    bottom of the window.
+
 ## Format
 The bootcamp consists of C++ code files, located in `src/`, that are meant
 to be read in depth. Each of these files can be compiled into an executable

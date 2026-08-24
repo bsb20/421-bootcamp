@@ -1,10 +1,33 @@
 {
-      "name": "UNC COMP 421 Bootcamp",
-      "image": "ubuntu:22.04",
+  "name": "UNC COMP 421 Bootcamp",
+  "image": "ubuntu:22.04",
+  "updateRemoteUserUID": true,
+  "containerEnv": {
+    "CC": "clang-14",
+    "CXX": "clang++-14"
+  },
+  "runArgs": [
+    "--security-opt", "seccomp=unconfined",
+    "--cap-add", "SYS_PTRACE"
+  ],
+  "customizations": {
+    "vscode": {
       "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "ms-vscode.cmake-tools"
+        "ms-vscode.cmake-tools",
+        "llvm-vs-code-extensions.vscode-clangd",
+        "ms-vscode.cpptools"
       ],
-      "postCreateCommand" : "echo y | ./packages.sh; git remote add public https://github.com/bsb20/421-bootcamp"
+      "settings": {
+        "C_Cpp.intelliSenseEngine": "disabled",
+        "cmake.configureOnOpen": true,
+        "cmake.useCMakePresets": "always",
+        "clangd.path": "clangd-14",
+        "clangd.arguments": [
+          "--background-index",
+          "--compile-commands-dir=${workspaceFolder}/build"
+        ]
+      }
+    }
+  },
+  "postCreateCommand" : "echo y | ./packages.sh; git remote add public https://github.com/bsb20/421-bootcamp"
 }
