@@ -10,6 +10,11 @@
     "--security-opt", "seccomp=unconfined",
     "--cap-add", "SYS_PTRACE"
   ],
+  // Wait for postCreateCommand (which configures CMake and generates
+  // build/compile_commands.json) to finish before VS Code connects and starts
+  // clangd. Otherwise clangd starts before the compile DB exists and can't find
+  // it, requiring a manual "clangd: Restart language server".
+  "waitFor": "postCreateCommand",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -23,11 +28,10 @@
         "cmake.useCMakePresets": "always",
         "clangd.path": "clangd-14",
         "clangd.arguments": [
-          "--background-index",
-          "--compile-commands-dir=${workspaceFolder}/build"
+          "--background-index"
         ]
       }
     }
   },
-  "postCreateCommand" : "echo y | ./packages.sh; git remote add public https://github.com/bsb20/421-bootcamp"
+  "postCreateCommand" : "echo y | ./packages.sh; git remote add public https://github.com/bsb20/421-bootcamp; cmake --preset debug"
 }
