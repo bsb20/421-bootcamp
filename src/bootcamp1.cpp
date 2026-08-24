@@ -4,13 +4,20 @@
 #include <unordered_map>
 
 int main() {
-    std::vector<std::string> words_vector;
-    std::string word;
-    while (std::cin >> word) {
-        words_vector.push_back(word);
-    }
+    // TODO: This is your scratchpad for trying out examples during the bootcamp.
+    // For starters, print something using std::cout
 
-    std::unordered_map<std::string, int> word_counts;
+
+
+
+    // Activity for later
+    //std::vector<std::string> words_vector;
+    //std::string word;
+    //while (std::cin >> word) {
+    //    words_vector.push_back(word);
+    //}
+
+    //std::unordered_map<std::string, int> word_counts;
     
     return 0;
 }
