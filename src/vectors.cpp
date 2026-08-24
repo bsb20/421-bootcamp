@@ -104,6 +104,19 @@ int main() {
     item.PrintPoint();
   }
 
+  //Many STL container functions rely on iterators for operating on generic containers.
+  //It takes a little getting used to:
+  for(std::vector<Point>::iterator it = point_vector.begin(); it != point_vector.end(); it++){
+    it->PrintPoint();
+  }
+
+ //auto helps!
+ for(auto it = point_vector.begin(); it != point_vector.end(); it++){
+    it->PrintPoint();
+  }
+
+  // Iterators are good for generic operations, let's see some examples
+
   // Now, we show how to erase elements from a vector. First, we can erase
   // elements by their position via the erase function. For instance, if we want
   // to delete int_vector[2], we can call the following function with the

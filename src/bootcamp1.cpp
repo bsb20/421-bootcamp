@@ -3,6 +3,10 @@
 #include <vector>
 #include <unordered_map>
 
+double testFunction(std::string s){
+
+}
+
 int main() {
     // TODO: This is your scratchpad for trying out examples during the bootcamp.
     // For starters, print something using std::cout

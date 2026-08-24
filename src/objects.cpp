@@ -62,6 +62,10 @@ public:
         setName(name);
     }
 
+    //not copyable!
+    //comment out for auto-generated copy ctor
+    Derived(Derived &o) = delete;
+
     //This is not java!
     //This print decl is *hiding* Base::print.  Not great!
     void print() const {
@@ -79,6 +83,7 @@ public:
 
   //once we have explicit ctor, all automatic ctors vanish
   Base2(std::string s) : name_(s) {}
+  Base2(Base2 &o) : name_(o.name_) {}
 
   //someone might override, better make it virtual so the compiler knows we don't want hiding for this name
   virtual void print() const {
@@ -109,6 +114,9 @@ public:
     //Base class default ctor no longer exists!  Better call it ourselves
     //Then init members.  Always try to match this list to actual init order (base class first!)
     Derived2(std::string name, size_t age) : Base2(name), age_(age){}
+
+    Derived2(Derived2& o): Base2(o), age_(o.age_){
+    }
 
     //override here will be a compiler error unless there is a virtual print to override.  It is not necessary to make this work.
     void print() const override{
@@ -172,6 +180,16 @@ int main() {
     Base2& b4(d2);
     std::cout << "Derived Rafa (virtual):" << std::endl;
     b4.print();
+
+    //Derived2 is copyable!
+    Derived2 d2copy(d2);
+    std::cout << "Copy Rafa (virtual):" << std::endl;
+    d2copy.print();
+
+    //Derived dcopy(d);
+    //std::cout << "Copy Rafa (virtual):" << std::endl;
+    //dcopy.print();
+
     //note the dtor order.
     //Derived dtor, derived members, base dtor, base members
     

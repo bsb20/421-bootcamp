@@ -31,6 +31,9 @@ class Point {
 public:
   Point() : x_(0), y_(0) {}
   Point(int x, int y) : x_(x), y_(y) {}
+  ~Point(){
+    std::cout << "Destructor for " << x_ << " " << y_ << std::endl;
+  }
   inline int GetX() { return x_; }
   inline int GetY() { return y_; }
   inline void SetX(int x) { x_ = x; }
@@ -45,7 +48,20 @@ private:
 // 445.
 void SetXTo445(std::unique_ptr<Point> &ptr) { ptr->SetX(445); }
 
+Point * PointFactory(int x, int y){
+  return new Point(x*2, y*2);
+}
+
 int main() {
+  //This is ok!  Allocation is stack, duration is "automatic"
+  Point pointStack(2,2);
+
+  //in java, this is ok
+  Point * p = PointFactory(0, 1);
+  //leak!
+  //delete p;
+  std::cout << "Did we leak?" << std::endl;
+
   // This is how to initialize an empty unique pointer of type
   // std::unique_ptr<Point>.
   std::unique_ptr<Point> u1;
