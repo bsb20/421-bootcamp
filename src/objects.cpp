@@ -174,7 +174,7 @@ int main() {
     //Disaster!  This is not polymorphism in C++, because print is hidden, not overridden
 
 
-    //By using vritual/override, and references/ptrs, we are telling the compiler to back off and resolve the function call at runtime
+    //By using virtual/override, and references/ptrs, we are telling the compiler to back off and resolve the function call at runtime
     //If you want to understand more about this process, search for "vtable"
     Derived2 d2("Rafa", 1);
     Base2& b4(d2);
