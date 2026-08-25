@@ -13,6 +13,10 @@
 // Includes std::cout (printing) for demo purposes.
 #include <iostream>
 
+// A function that takes an int and adds 1000 to it.
+void add_thousand(int a){ a = a + 1000; }
+
+
 // A function that takes an int reference and adds 3 to it.
 void add_three(int &a) { a = a + 3; }
 
@@ -26,6 +30,10 @@ int main() {
 
   // As stated, if we try to print b, we will get 10.
   std::cout << "b is " << b << std::endl;
+
+  // try to add 1000 to a
+  add_thousand(a);
+  std::cout << "a is " << a << std::endl;
 
   // References can also be passed into functions. Take the function add_three,
   // which takes in an int reference and adds 3 to it. If we call this function,

@@ -31,12 +31,9 @@ $ ./packages.sh
 
 ### VS Code Dev Containers (recommended)
 
-This repository is set up to integrate with the VS Code Dev Containers extension. You
-clone the repository onto your **host** machine and open that folder inside a container,
-so your commits, branches, and git credentials stay on the host.
+If you prefer to use VS Code, this repository is set up to integrate with the VS Code Dev Containers extension. In this workflow you clone the repository onto your **host** machine and open that folder inside a container. Because your code lives in a normal clone on the host, your commits, branches, and git credentials stay on the host and your work is never trapped inside (or lost with) the container.
 
-1.  Install [Docker](https://docs.docker.com/get-started/get-docker/) and the
-    [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) extension in VS Code.
+1.  Follow the instructions for [setting up Docker](https://docs.docker.com/get-started/get-docker/) on your host machine, and install the [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) extension in VS Code.
 
 2.  Clone this repository if you have not already:
 
@@ -44,21 +41,15 @@ so your commits, branches, and git credentials stay on the host.
     $ git clone <your-repo-url>
     ```
 
-3.  Open VS Code. From the command palette (<kbd>F1</kbd>), run
-    ***Dev Containers: Open Folder in Container...*** and select the cloned folder. Wait for
-    the container to build. The first time, it automatically installs all required packages
-    (via `packages.sh`), so this may take a few minutes. Subsequent launches are fast.
+3.  Open VS Code.  From the command palette (<kbd>F1</kbd>), run ***Dev Containers: Open Folder in Container...*** and select the folder you cloned your repo into. Wait for the container to build. The first time, it automatically installs all required packages, so this may take a few minutes. Subsequent launches are fast.
 
-4.  Set the build configuration using the **CMake** tab. Click the CMake icon (triangle
-    with a wrench) in the left side bar and select a *Configure Preset*. We provide:
+4.  Once the container is running, we must set the build configuration using the **CMake** tab. Click the CMake icon (triangle with a wrench) on the left side bar. Select a *Configure Preset*.  We provide some preset configurations:
 
     - **Debug** &mdash; debug build (the default).
     - **Release** &mdash; optimized build.
     - **RelWithDebInfo** &mdash; optimized build with debug info.
 
-5.  To build and run/debug a specific executable, select it as the CMake **launch target**
-    in the status bar, then use the Launch/Debug buttons in the **CMake** tab or at the
-    bottom of the window.
+5.  To build and run/debug a specific executable, select it as the CMake **launch target** in the status bar, then use the Launch/Debug buttons in the **CMake** tab or at the bottom of the window.
 
 ## Format
 The bootcamp consists of C++ code files, located in `src/`, that are meant
