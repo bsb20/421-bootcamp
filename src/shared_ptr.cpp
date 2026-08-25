@@ -20,8 +20,15 @@
 // Basic point class. (Will use later)
 class Point {
 public:
-  Point() : x_(0), y_(0) {}
-  Point(int x, int y) : x_(x), y_(y) {}
+  Point() : x_(0), y_(0) {
+    std::cout << "Constructor for " << x_ << " " << y_ << std::endl;
+  }
+  Point(int x, int y) : x_(x), y_(y) {
+    std::cout << "Constructor for " << x_ << " " << y_ << std::endl;
+  }
+  ~Point(){
+    std::cout << "Destructor for " << x_ << " " << y_ << std::endl;
+  }
   inline int GetX() { return x_; }
   inline int GetY() { return y_; }
   inline void SetX(int x) { x_ = x; }
