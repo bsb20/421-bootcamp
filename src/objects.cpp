@@ -115,6 +115,7 @@ public:
     //Then init members.  Always try to match this list to actual init order (base class first!)
     Derived2(std::string name, size_t age) : Base2(name), age_(age){}
 
+    //Copy ctor
     Derived2(Derived2& o): Base2(o), age_(o.age_){
     }
 
