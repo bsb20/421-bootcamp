@@ -11,6 +11,8 @@
 ##  * macOS 13 Ventura (x86-64 or ARM)
 ## =================================================================
 
+CLANG_VERSION=15
+
 main() {
   set -o errexit
 
@@ -77,7 +79,7 @@ install_mac() {
   brew ls --versions coreutils || brew install coreutils
   brew ls --versions doxygen || brew install doxygen
   brew ls --versions git || brew install git
-  (brew ls --versions llvm | grep 14) || brew install llvm@14
+  (brew ls --versions llvm | grep ${CLANG_VERSION}) || brew install llvm@${CLANG_VERSION}
   brew ls --versions libelf || brew install libelf
   brew install sqlite
   brew install wget
@@ -97,10 +99,10 @@ install_linux() {
   # Install packages.
   apt-get -y install \
       build-essential \
-      clang-14 \
-      clang-format-14 \
-      clang-tidy-14 \
-      clangd-14 \
+      clang-${CLANG_VERSION} \
+      clang-format-${CLANG_VERSION} \
+      clang-tidy-${CLANG_VERSION} \
+      clangd-${CLANG_VERSION} \
       cmake \
       doxygen \
       git \

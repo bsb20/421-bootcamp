@@ -19,7 +19,7 @@ be able to build on other Ubuntu versions or on macOS, but do so at your own ris
 
 ### Installing packages
 
-To install the packages needed to build the bootcamp (a `clang-14` toolchain, CMake,
+To install the packages needed to build the bootcamp (a `clang-15` toolchain, CMake,
 `clangd`, `gdb`, and friends), run the install script:
 
 ```console

@@ -3,8 +3,8 @@
   "image": "ubuntu:22.04",
   "updateRemoteUserUID": true,
   "containerEnv": {
-    "CC": "clang-14",
-    "CXX": "clang++-14"
+    "CC": "clang-15",
+    "CXX": "clang++-15"
   },
   "runArgs": [
     "--security-opt", "seccomp=unconfined",
@@ -27,7 +27,7 @@
         "debug.showVariableTypes": true,
         "cmake.configureOnOpen": true,
         "cmake.useCMakePresets": "always",
-        "clangd.path": "clangd-14",
+        "clangd.path": "clangd-15",
         "clangd.arguments": [
           "--background-index"
         ]
