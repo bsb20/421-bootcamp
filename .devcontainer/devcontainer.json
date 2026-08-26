@@ -34,5 +34,5 @@
       }
     }
   },
-  "postCreateCommand" : "echo y | ./packages.sh; git remote add public https://github.com/bsb20/421-bootcamp; cmake --preset debug"
+  "postCreateCommand" : "echo y | ./packages.sh; git remote add public https://github.com/bsb20/421-bootcamp; rm -rf build; cmake --preset debug"
 }
